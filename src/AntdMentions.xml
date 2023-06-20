@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.antdmentions.AntdMentions" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Antd Mentions</name>
+    <description>Antd Mentions</description>
+    <icon />
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="Data source">
+                <property key="textAttribute" type="attribute">
+                    <caption>Text Attribute</caption>
+                    <description />
+                    <attributeTypes>
+                        <attributeType name="String" />
+                    </attributeTypes>
+                </property>
+                <property key="autoCompleteConfigObject" type="object" isList="true">
+                    <caption>Trigger/Token List</caption>
+                    <description>You may use both the static Comma Separated Token field and the token datasource to supply the widget tokens to sugest. These lists will be combined into the full token list for each trigger.</description>
+                    <properties>
+                        <propertyGroup caption="Object list group">
+                            <property key="trigger" type="expression">
+                                <caption>Trigger(s)</caption>
+                                <description>The sequence of characters that triggers the widget to suggest your token options. Optionally, this may be a comma separated list.</description>
+                                <returnType type="String" />
+                            </property>
+                            <property key="tokenDataSource" type="datasource" isList="true" required="false">
+                                <caption>Token Datasource</caption>
+                                <description>List of objects with an attribute for autocomplete tokens.</description>
+                            </property>
+                            <property key="tokenReference" type="association" selectableObjects="tokenDataSource">
+                                <caption>Reference Reference</caption>
+                                <description>Token reference</description>
+                                <associationTypes>
+                                    <associationType name="Reference" />
+                                    <associationType name="ReferenceSet" />
+                                </associationTypes>
+                            </property>
+                            <property key="tokenDataSourceTextAttribute" type="attribute" dataSource="tokenDataSource">
+                                <caption>Token Attribute</caption>
+                                <description />
+                                <attributeTypes>
+                                    <attributeType name="String" />
+                                </attributeTypes>
+                            </property>
+                        </propertyGroup>
+                    </properties>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Common">
+            <systemProperty key="Name" />
+            <systemProperty key="TabIndex" />
+        </propertyGroup>
+    </properties>
+</widget>
